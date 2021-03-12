@@ -18,7 +18,6 @@ eclib_esc () (
     while [ -n "$1" ]; do
         unset n
         case "$1" in
-            -h) echo "TODO: Help message" ;;
             -[fFbB]|--foreground|--intense-foreground|--background|--intense-background)
                 case "$1" in
                     -f|--foreground) n=30 ;;
@@ -36,7 +35,6 @@ eclib_esc () (
                     cyan|6|c) ((n+=6)) ;;
                     white|7|w|lg|light-gr[ae]y) ((n+=7)) ;;
                     *)
-                        1>&2 echo -e"\033[01;91mInvalid option for flag $1: $2\033[0m"
                         return 2
                         ;;
                 esac
@@ -54,7 +52,6 @@ eclib_esc () (
             -p|--print-code) print_code=1 ;;
             --) shift ; break ;;
             *)
-                1>&2 echo -e "\033[01;91mUnrecognized flag \"$1\"\033[0m"
                 return 1 ;;
         esac
         if ! [ -z "$n" ]; then
