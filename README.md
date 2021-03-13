@@ -5,7 +5,7 @@ A BASH library for working with ANSI formatting codes.
 ## Source it into your script:
 
 `source /path/to/eli-bash-colors.sh`
-## Usage
+## The commands
 
 There are two functions defined in `eli-bash-colors.sh`:
 
@@ -14,7 +14,7 @@ There are two functions defined in `eli-bash-colors.sh`:
 * **Usage:** `ebcolor_clf`, `ebcolor_clf -p`
 * **Description:** prints out the ANSI Escape sequence to clear formatting (`\033[0m`)
 * **Arguments:**
-   * `-p`: print the code out, without actually running it
+   * `-p`, `--print_seq`: print the code out, without actually running it
 * **Return Codes:**
    * **0** - ran without issue
    * **1** - recieved an argument other than `-p`, or received multiple arguments
@@ -24,7 +24,7 @@ There are two functions defined in `eli-bash-colors.sh`:
 * **Usage:** `ebcolor_esc [ARGS]`
 * **Description:** generates an ANSI escape sequence from the parameters.
 * **Arguments:**
-   * `-p`: print the code out, without actually running it
+   * `-p`, `--print-seq`: print the control sequence out, instead of using it
    * `-f color`, `--foreground color`: set the foreground color
    * `-b color`, `--background color`: set the background color
    * `-F color`, `--intense-foreground color`: set the foreground color to the intense/bright version of `color` (non-standard)
@@ -54,6 +54,16 @@ There are two functions defined in `eli-bash-colors.sh`:
 * **Return Codes:**
    * **1** - unrecognized flag
    * **2** - unrecognized option for flag
+
+## Examples:
+
+`echo "$(ebcolor_esc -f red -B white -i)Red on intense white italics$(ebcolor_esc)"` 
+
+`echo "$(ebcolor_esc -f rgb 195 0 180)rgb 195, 0, 180$(ebcolor_esc)"`
+
+`read -p "Prompt: $(ebcolor_esc -B dg -F w -e)"; printf "$(ebcolor_clf)"`
+
+![image:example.gif](example.gif)
 
 ## Why don't you just use tput?
 

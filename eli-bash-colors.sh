@@ -1,6 +1,6 @@
 ebcolor_clf () (
     if [ -n "$1" ]; then
-        if [ "$1" = "-p" ] && ! [ -n "$2" ]; then
+        if [ "$1" = "-p" ] || [ "$1" = "--print-seq" ] && ! [ -n "$2" ]; then
             echo '\033[0m'
             return 0
         else
@@ -96,7 +96,7 @@ ebcolor_esc () (
             -R|--reverse|-7) n=7 ;;
             -I|--hidden|-8) n=8 ;;
             -s|--strike|-9) n=9 ;;
-            -p|--print-code) print_code=1 ;;
+            -p|--print-seq) print_code=1 ;;
             *)
                 return 1 ;;
         esac
