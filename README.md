@@ -59,6 +59,8 @@ There are two functions defined in `eli-bash-colors.sh`:
 
 `echo "$(ebcolor_esc -f red -B white -i)Red on intense white italics$(ebcolor_esc)"` 
 
+`echo "$(ebcolor_esc --blink --intense-foreground yellow --strike --bold --background black --reverse)OBNOXIOUS$(ebcolor_esc)"`
+
 `echo "$(ebcolor_esc -f rgb 195 0 180)rgb 195, 0, 180$(ebcolor_esc)"`
 
 `read -p "Prompt: $(ebcolor_esc -B dg -F w -e)"; printf "$(ebcolor_clf)"`
