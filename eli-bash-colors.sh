@@ -109,10 +109,10 @@ ebcolor_esc () (
     ansi_seq="\033[${inner_seq}m"
     if [ ${print_code} ]; then
         # if print code is non-empty, echo the literal string (useful for constructing PS1 prompt string)
-        echo "${ansi_seq}"
+        echo "$ansi_seq"
     else
         # otherwise, actually print the code
-        echo -e "${ansi_seq}"
+        echo -e "$ansi_seq"
     fi
 )
 
